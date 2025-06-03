@@ -51,7 +51,7 @@ AND er.er_creation_time = (
         FROM company_user_contracts cuc_sub
         INNER JOIN company_contractors cc_sub ON cuc_sub.cuc_contractor_fkey = cc_sub.cc_id
         WHERE cuc_sub.cuc_user_fkey = u.usr_id
-        AND (cuc_sub.cuc_end_date >= '2025-01-01' or cuc_sub.cuc_cancel_date >= '2025-01-01')
+        --AND (cuc_sub.cuc_end_date >= '2025-01-01' or cuc_sub.cuc_cancel_date >= '2025-01-01')
         AND (cuc_sub.cuc_end_date <= current_date or cuc_sub.cuc_cancel_date <= current_date) 
         AND cc_sub.cc_name != 'AA_Oczekuje'
         ORDER BY cuc_sub.cuc_last_update_time DESC
@@ -60,17 +60,17 @@ AND er.er_creation_time = (
             SELECT 1
             FROM company_user_contracts cuc_sub
             WHERE cuc_sub.cuc_user_fkey = u.usr_id
-              AND cuc_sub.cuc_end_date >= '2025-01-01'
+              --AND cuc_sub.cuc_end_date >= '2025-01-01'
               AND cuc_sub.cuc_contractor_fkey != cuc.cuc_contractor_fkey  -- Unikamy wzięcia tej samej umowy
         ))
-    AND cuc.cuc_end_date >= '2025-01-01' 
+    --AND cuc.cuc_end_date >= '2025-01-01' 
     AND (
         cc.cc_name != 'AA_Oczekuje'
         OR (cc.cc_name = 'AA_Oczekuje' AND NOT EXISTS (
             SELECT 1
             FROM company_user_contracts cuc_sub
             WHERE cuc_sub.cuc_user_fkey = u.usr_id
-              AND cuc_sub.cuc_end_date >= '2025-01-01'
+              --AND cuc_sub.cuc_end_date >= '2025-01-01'
               AND cuc_sub.cuc_contractor_fkey != cc.cc_id
         ))
     )

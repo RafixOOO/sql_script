@@ -8,7 +8,7 @@ select
     LEFT JOIN user_tasks ON request_event.cr_id = ut_entity_fkey
     left join company_contractor_positions on cps_contractor_fkey=cr_contractor_fkey and cps_deleted = false and cps_archival = false
     WHERE ut_deleted IS false
-      and request_event.cr_number = 'PT950'
+      and request_event.cr_number = 'PT956'
       and ut_entity_type = 'contractors-requests';
       
 select

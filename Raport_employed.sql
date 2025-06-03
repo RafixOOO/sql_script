@@ -1,6 +1,6 @@
 WITH RECURSIVE YearlyContracts AS (
     -- Początkowy rok, czyli 2018
-    SELECT 2025 AS year
+    SELECT 2018 AS year
     UNION ALL
     -- Rekursja: kolejny rok
     SELECT year + 1
