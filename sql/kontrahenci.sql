@@ -113,7 +113,7 @@ zakup_wl AS (
         UNION ALL
         SELECT * FROM "WILSKO_PROD"."RPC1"
     ) T0
-    LEFT JOIN "TARKON_PROD"."OCRD" T3 ON T0."BaseCard" = T3."CardCode"
+    LEFT JOIN "WILSKO_PROD"."OCRD" T3 ON T0."BaseCard" = T3."CardCode"
     WHERE T0."LineStatus" = 'O'
     GROUP BY T3."CardName", T3."Country", T3."CardCode", EXTRACT(YEAR FROM T0."ActDelDate"), T0."Currency"
 ),
@@ -207,7 +207,7 @@ zakup_tp AS (
         UNION ALL
         SELECT * FROM "TARKONPROJEKT_PROD"."RPC1"
     ) T0
-    LEFT JOIN "TARKON_PROD"."OCRD" T3 ON T0."BaseCard" = T3."CardCode"
+    LEFT JOIN "TARKONPROJEKT_PROD"."OCRD" T3 ON T0."BaseCard" = T3."CardCode"
     WHERE T0."LineStatus" = 'O'
     GROUP BY T3."CardName", T3."Country", T3."CardCode", EXTRACT(YEAR FROM T0."ActDelDate"), T0."Currency"
 ),
@@ -301,7 +301,7 @@ zakup_tm AS (
         UNION ALL
         SELECT * FROM "TARKON_MEBU_PROD"."RPC1"
     ) T0
-    LEFT JOIN "TARKON_PROD"."OCRD" T3 ON T0."BaseCard" = T3."CardCode"
+    LEFT JOIN "TARKON_MEBU_PROD"."OCRD" T3 ON T0."BaseCard" = T3."CardCode"
     WHERE T0."LineStatus" = 'O'
     GROUP BY T3."CardName", T3."Country", T3."CardCode", EXTRACT(YEAR FROM T0."ActDelDate"), T0."Currency"
 ),
