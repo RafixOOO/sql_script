@@ -15,7 +15,9 @@ right JOIN employee_rate_calendars erc
         SELECT MAX(erc2.erc_date_from)
         FROM employee_rate_calendars erc2
         WHERE erc2.erc_entity_fkey = er.er_id
-    ) and erc.erc_deleted is false and erc.erc_date_to > CURRENT_DATE
+    ) and 
+    --erc.erc_deleted is false and
+    erc.erc_date_to > CURRENT_DATE
 WHERE 
 --u.usr_state = 'Aktywny'
 er.er_id is not null and
